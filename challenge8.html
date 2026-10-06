@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3 Challenge 8</title>
+</head>
+<body>
+
+    <h1>Melsoft Module 3 - Challenge 8</h1>
+    <p>This page uses alert, prompt and confirm.</p>
+
+    <script>
+
+        // First I welcome the user.
+        window.alert("Welcome to my Module 3 project!");
+
+        // Get the name from the user.
+        let name = window.prompt("What is your name?");
+
+        if (name === null || name.trim() === "") {
+            name = "Guest";
+        }
+
+        // Ask for the age.
+        let ageAnswer = window.prompt("How old are you?");
+        let age = Number(ageAnswer);
+
+        let validAge =
+            ageAnswer !== null &&
+            ageAnswer.trim() !== "" &&
+            !Number.isNaN(age) &&
+            age >= 1 &&
+            age <= 120;
+
+        // Work out the membership category.
+        let membership =
+            age < 18 ? "Youth" :
+            age < 60 ? "Adult" :
+            "Senior";
+
+        // Ask about the newsletter.
+        let wantsNewsletter = window.confirm(
+            "Do you want to subscribe to our newsletter?"
+        );
+
+        let newsletterMessage =
+            wantsNewsletter ? "Subscribed" : "Not subscribed";
+
+        // Show everything at the end.
+        window.alert(
+            "Your details:\n\n" +
+            "Name: " + name + "\n" +
+            "Age: " + (validAge ? age : "Invalid age") + "\n" +
+            "Membership: " + (validAge ? membership : "Not assigned") + "\n" +
+            "Newsletter: " + newsletterMessage
+        );
+
+        /*
+        INTERVIEW QUESTIONS
+
+        1. Blocking means the browser waits for the user to finish the
+        alert, confirm or prompt before continuing. This is not ideal in
+        modern websites because the page can feel frozen while waiting.
+
+        2. A modern website could use a custom modal or dialog box instead.
+
+        3. confirm returns true or false. prompt returns null when Cancel
+        is clicked. If the user leaves the box empty and presses OK, prompt
+        returns an empty string.
+        */
+
+    </script>
+
+</body>
+</html>
